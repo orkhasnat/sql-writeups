@@ -1,5 +1,5 @@
 # Congestion Charging
-Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging) 
+Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging)   
 [Jump directly to Solutions](./congestion-charging.md#Solutions)
 
 ---
@@ -100,7 +100,7 @@ A number of vehicles have permits that start on 30th Jan 2007. List the name and
 ```
 
 ##  Problem 6
-#medium 
+#medium  
 A number of vehicles have permits that start on 30th Jan 2007. List the name and address for each keeper in alphabetical order without duplication.
 ```sql
 
