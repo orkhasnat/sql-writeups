@@ -4,23 +4,51 @@
     "type": "split",
     "children": [
       {
-        "id": "6918df0f66b0f207",
-        "type": "tabs",
+        "id": "8c751efe0043a556",
+        "type": "split",
         "children": [
           {
-            "id": "23e0237934274ff5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SQLZoo/congestion-charging.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": false
+            "id": "6f7dc23356167fd2",
+            "type": "tabs",
+            "dimension": 58.217592592592595,
+            "children": [
+              {
+                "id": "bf214841d5fa5377",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "SQLZoo/congestion-charging.md",
+                    "mode": "preview",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
               }
-            }
+            ]
+          },
+          {
+            "id": "dafb34303a225ca1",
+            "type": "tabs",
+            "dimension": 41.782407407407405,
+            "children": [
+              {
+                "id": "1bb96ab15d5b697b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "SQLZoo/congestion-charging.md",
+                    "mode": "preview",
+                    "backlinks": false,
+                    "source": false
+                  }
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -70,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "71fcbf408d15187f",
@@ -126,13 +155,13 @@
       "templates:Insert template": false
     }
   },
-  "active": "23e0237934274ff5",
+  "active": "bf214841d5fa5377",
   "lastOpenFiles": [
-    "README.md",
-    "SQLZoo/congestion-charging.md",
-    "SQLZoo/congestion-charging1.md",
     "_resources/congestion-charging.png",
+    "SQLZoo/congestion-charging.md",
     "_resources/sqlzoo_template.md",
+    "README.md",
+    "SQLZoo/congestion-charging1.md",
     "_resources/template.md",
     "SQLZoo/template.md",
     "_resources",

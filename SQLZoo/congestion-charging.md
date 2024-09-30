@@ -62,7 +62,7 @@ Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging)
 ---
 # Solutions
 ##  Problem 1
-#easy  
+#easy    
  Show the name and address of the keeper of vehicle SO 02 PSP.
 ```sql
 select keeper.name, keeper.address from keeper 
@@ -71,100 +71,134 @@ on vehicle.keeper=keeper.id
 where vehicle.id="SO 02 PSP";
 ```
 ##  Problem 2
-#easy  
+#easy    
 Show the number of cameras that take images for incoming vehicles.
 ```sql
 select count(*) from camera where perim="IN";
 ```
 
 ##  Problem 3
-#easy  
+#easy    
 List the image details taken by Camera 10 before 26 Feb 2007.
 ```sql
-
+select * from image 
+where camera=10 and whn < date("2007-02-26");
 ```
+
+> **DATE datatype format** `YYYY-MM-DD`
 
 ##  Problem 4
-#easy  
+#easy   
 List the number of images taken by each camera. Your answer should show how many images have been taken by camera 1, camera 2 etc. The list must NOT include the images taken by camera 15, 16, 17, 18 and 19.
 ```sql
-
+select camera,count(*) from image
+where camera not between 15 and 19
+group by camera;
 ```
 
-
 ##  Problem 5
-#easy  
+#easy      
 A number of vehicles have permits that start on 30th Jan 2007. List the name and address for each keeper in alphabetical order without duplication.
 ```sql
-
+select distinct(keeper.name), keeper.address from keeper 
+join vehicle on vehicle.keeper = keeper.id
+join permit on permit.reg = vehicle.id
+where permit.sDate = date("2007-01-30")
+order by keeper.name;
 ```
 
 ##  Problem 6
-#medium 
-{{description}}
+#medium    
+List the owners (name and address) of Vehicles caught by camera 1 or 18 without duplication.
 ```sql
-
+select distinct(keeper.name), keeper.address from keeper 
+join vehicle on vehicle.keeper = keeper.id
+join image on vehicle.id = image.reg
+where image.camera in (1,18);
 ```
 
 ##  Problem 7
-#medium 
-{{description}}
+#medium    
+Show keepers (name and address) who have more than 5 vehicles.
 ```sql
-
+select keeper.name, keeper.address, 
+count(vehicle.id) from keeper
+join vehicle on vehicle.keeper = keeper.id
+group by keeper.id having count(*) >5;
 ```
 
 ##  Problem 8
-#medium 
-{{description}}
+#medium    
+For each vehicle show the number of current permits (suppose today is the 1st of Feb 2007). The list should include the vehicle.s registration and the number of permits. Current permits can be determined based on charge types, e.g. for weekly permit you can use the date after 24 Jan 2007 and before 02 Feb 2007.   
 ```sql
-
+HARD
 ```
 
 ##  Problem 9
-#medium 
-{{description}}
+#medium               
+Obtain a list of every vehicle passing camera 10 on 25th Feb 2007. Show the time, the registration and the name of the keeper if available.
 ```sql
-
+select image.reg, image.whn, keeper.name from image
+join vehicle on vehicle.id = image.reg
+join keeper on vehicle.keeper = keeper.id
+where image.camera = 10 and date(image.whn) = date("2007-02-25");
 ```
 
-##  Problem 10
-#medium 
-{{description}}
-```sql
+> **How to check data types in MySQL?** #check
 
+##  Problem 10
+#medium    
+List the keepers who have more than 4 vehicles and one of them must have more than 2 permits. The list should include the names and the number of vehicles.
+```sql
+select v_count.name, v_count.n_veh as "No. of Vehicles"
+from (
+	select keeper.id, keeper.name, 
+	count(vehicle.id) as n_veh from keeper
+	join vehicle on vehicle.keeper = keeper.id 
+	group by keeper,id, keeper.name
+	having count(vehicle.id) > 4 
+) as v_count 
+join ( 
+	select vehicle.keeper, permit.reg, 
+	count(chargetype) from vehicle
+	join permit on permit.reg = vehicle.id
+	group by permit.reg
+	having count(chargeType) > 2 
+) as p_count
+on v_count.id = p_count.keeper
 ```
 
 ##  Problem 11
-#hard 
-{{description}}
+#hard        
+When creating a view in scott you must specify the schema name of the sources and the destination.
 ```sql
-
+Huh! Ok!!
 ```
 
 ##  Problem 12
-#hard
-{{description}}
+#hard    
+There are four types of permit. The most popular type means that this type has been issued the highest number of times. Find out the most popular type, together with the total number of permits issued.
 ```sql
 
 ```
 
 ##  Problem 13
-#hard
-{{description}}
+#hard    
+For each of the vehicles caught by camera 19 - show the registration, the earliest time at camera 19 and the time and camera at which it left the zone.
 ```sql
 
 ```
 
 ##  Problem 14
-#hard
-{{description}}
+#hard     
+For all 19 cameras - show the position as IN, OUT or INTERNAL and the busiest hour for that camera.
 ```sql
 
 ```
 
 ##  Problem 15
-#hard
-{{description}}
+#hard    
+Anomalous daily permits. Daily permits should not be issued for non-charging days. Find a way to represent charging days. Identify the anomalous daily permits.
 ```sql
 
 ```

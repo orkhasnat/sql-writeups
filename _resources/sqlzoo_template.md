@@ -62,27 +62,27 @@ Link: [{{title}}](https://sqlzoo.net/wiki/{{title}})   //change
 ---
 # Solutions
 ##  Problem 1
-#easy  
+#easy    
  {{description}}
 ```sql
 
 ```
 ##  Problem 2
-#easy  
+#easy    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 3
-#easy  
+#easy    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 4
-#easy  
+#easy    
 {{description}}
 ```sql
 
@@ -90,77 +90,77 @@ Link: [{{title}}](https://sqlzoo.net/wiki/{{title}})   //change
 
 
 ##  Problem 5
-#easy  
+#easy    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 6
-#medium 
+#medium    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 7
-#medium 
-{{description}}
+#medium     
+{{description}} 
 ```sql
 
 ```
 
 ##  Problem 8
-#medium 
+#medium      
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 9
-#medium 
+#medium     
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 10
-#medium 
+#medium    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 11
-#hard 
+#hard      
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 12
-#hard
+#hard      
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 13
-#hard
+#hard    
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 14
-#hard
+#hard     
 {{description}}
 ```sql
 
 ```
 
 ##  Problem 15
-#hard
+#hard     
 {{description}}
 ```sql
 
