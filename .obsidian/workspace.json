@@ -19,16 +19,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "7c18d7b0662a2afa",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "_resources/CongestionCharge.png"
-              }
-            }
           }
         ]
       }
@@ -136,8 +126,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d3ee1b20609b4882",
+  "active": "2ee6ba0efe21a7e9",
   "lastOpenFiles": [
+    "_resources/sqlzoo_template.md",
+    "_resources/template.md",
+    "SQLZoo/template.md",
     "_resources/CongestionCharge.png",
     "SQLZoo/congestion-charging.md",
     "_resources",
