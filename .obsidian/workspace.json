@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "964c2144b5908576",
+        "id": "6918df0f66b0f207",
         "type": "tabs",
         "children": [
           {
-            "id": "d3ee1b20609b4882",
+            "id": "23e0237934274ff5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "71fcbf408d15187f",
@@ -123,22 +122,24 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templates:Insert template": false
     }
   },
-  "active": "d3ee1b20609b4882",
+  "active": "23e0237934274ff5",
   "lastOpenFiles": [
+    "README.md",
+    "SQLZoo/congestion-charging.md",
+    "SQLZoo/congestion-charging1.md",
+    "_resources/congestion-charging.png",
     "_resources/sqlzoo_template.md",
     "_resources/template.md",
     "SQLZoo/template.md",
-    "_resources/CongestionCharge.png",
-    "SQLZoo/congestion-charging.md",
     "_resources",
     "CongestionCharge.png",
     "New folder",
     "SQLZoo/CongestionCharge.png",
     "SQLZoo/CongestionCharge.png.crdownload",
-    "README.md",
     "SQLZoo",
     "SQlZoo"
   ]

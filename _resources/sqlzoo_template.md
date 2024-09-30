@@ -1,11 +1,12 @@
-# Congestion Charging
-Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging) 
-[Jump directly to Solutions](./congestion-charging.md#Solutions)
+# {{title}} //change
+Link: [{{title}}](https://sqlzoo.net/wiki/{{title}})   //change
+
+[Jump directly to Solutions](./{{title}}.md#Solutions)
 
 ---
 # Setup
-ER Diagram for *Congestion Charging* database
-![](../_resources/CongestionCharge.png)
+### ER Diagram
+![](../_resources/{{title}}.png)
 ### Camera Table
 | id   | perim |
 | ---- | ----- |
@@ -28,14 +29,14 @@ ER Diagram for *Congestion Charging* database
 | ...    |                               |           |
 ### Keeper Table
 
-|id|name|address|
-|---|---|---|
-|1|Ambiguous, Arthur|Absorption Ave.|
-|2|Inconspicuous, Iain|Interception Rd.|
-|3|Contiguous, Carol|Circumscription Close|
-|4|Strenuous, Sam|Surjection Street|
-|5|Assiduous, Annie|Attribution Alley|
-|6|Incongruous, Ingrid|Irresolution Pl.|
+| id  | name                | address               |
+| --- | ------------------- | --------------------- |
+| 1   | Ambiguous, Arthur   | Absorption Ave.       |
+| 2   | Inconspicuous, Iain | Interception Rd.      |
+| 3   | Contiguous, Carol   | Circumscription Close |
+| 4   | Strenuous, Sam      | Surjection Street     |
+| 5   | Assiduous, Annie    | Attribution Alley     |
+| 6   | Incongruous, Ingrid | Irresolution Pl.      |
 ### Permit Table
 | reg       | sDate                         | chargeType |
 | --------- | ----------------------------- | ---------- |
@@ -56,37 +57,33 @@ ER Diagram for *Congestion Charging* database
 | SO 02 RSP | 1      |
 | SO 02 BTP | 2      |
 | SO 02 HTP | 2      |
-|....||
+| ....      |        |
 
 ---
 # Solutions
 ##  Problem 1
 #easy  
-Show the name and address of the keeper of vehicle SO 02 PSP.
-
+ {{description}}
 ```sql
-select keeper.name, keeper.address from keeper 
-join vehicle 
-on vehicle.keeper=keeper.id
-where vehicle.id="SO 02 PSP";
+
 ```
 ##  Problem 2
 #easy  
-Show the number of cameras that take images for incoming vehicles.
+{{description}}
 ```sql
-select count(*) from camera where perim="IN";
+
 ```
 
 ##  Problem 3
 #easy  
-List the image details taken by Camera 10 before 26 Feb 2007.
+{{description}}
 ```sql
 
 ```
 
 ##  Problem 4
 #easy  
-List the number of images taken by each camera. Your answer should show how many images have been taken by camera 1, camera 2 etc. The list must NOT include the images taken by camera 15, 16, 17, 18 and 19.
+{{description}}
 ```sql
 
 ```
@@ -94,14 +91,77 @@ List the number of images taken by each camera. Your answer should show how many
 
 ##  Problem 5
 #easy  
-A number of vehicles have permits that start on 30th Jan 2007. List the name and address for each keeper in alphabetical order without duplication.
+{{description}}
 ```sql
 
 ```
 
 ##  Problem 6
 #medium 
-A number of vehicles have permits that start on 30th Jan 2007. List the name and address for each keeper in alphabetical order without duplication.
+{{description}}
+```sql
+
+```
+
+##  Problem 7
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 8
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 9
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 10
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 11
+#hard 
+{{description}}
+```sql
+
+```
+
+##  Problem 12
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 13
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 14
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 15
+#hard
+{{description}}
 ```sql
 
 ```

@@ -1,11 +1,12 @@
 # Congestion Charging
-Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging)   
+Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging) 
+
 [Jump directly to Solutions](./congestion-charging.md#Solutions)
 
 ---
 # Setup
-ER Diagram for *Congestion Charging* database
-![](../_resources/CongestionCharge.png)
+### ER Diagram
+![](../_resources/congestion-charging.png)
 ### Camera Table
 | id   | perim |
 | ---- | ----- |
@@ -28,14 +29,14 @@ ER Diagram for *Congestion Charging* database
 | ...    |                               |           |
 ### Keeper Table
 
-|id|name|address|
-|---|---|---|
-|1|Ambiguous, Arthur|Absorption Ave.|
-|2|Inconspicuous, Iain|Interception Rd.|
-|3|Contiguous, Carol|Circumscription Close|
-|4|Strenuous, Sam|Surjection Street|
-|5|Assiduous, Annie|Attribution Alley|
-|6|Incongruous, Ingrid|Irresolution Pl.|
+| id  | name                | address               |
+| --- | ------------------- | --------------------- |
+| 1   | Ambiguous, Arthur   | Absorption Ave.       |
+| 2   | Inconspicuous, Iain | Interception Rd.      |
+| 3   | Contiguous, Carol   | Circumscription Close |
+| 4   | Strenuous, Sam      | Surjection Street     |
+| 5   | Assiduous, Annie    | Attribution Alley     |
+| 6   | Incongruous, Ingrid | Irresolution Pl.      |
 ### Permit Table
 | reg       | sDate                         | chargeType |
 | --------- | ----------------------------- | ---------- |
@@ -56,14 +57,13 @@ ER Diagram for *Congestion Charging* database
 | SO 02 RSP | 1      |
 | SO 02 BTP | 2      |
 | SO 02 HTP | 2      |
-|....||
+| ....      |        |
 
 ---
 # Solutions
 ##  Problem 1
 #easy  
-Show the name and address of the keeper of vehicle SO 02 PSP.
-
+ Show the name and address of the keeper of vehicle SO 02 PSP.
 ```sql
 select keeper.name, keeper.address from keeper 
 join vehicle 
@@ -100,8 +100,71 @@ A number of vehicles have permits that start on 30th Jan 2007. List the name and
 ```
 
 ##  Problem 6
-#medium  
-A number of vehicles have permits that start on 30th Jan 2007. List the name and address for each keeper in alphabetical order without duplication.
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 7
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 8
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 9
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 10
+#medium 
+{{description}}
+```sql
+
+```
+
+##  Problem 11
+#hard 
+{{description}}
+```sql
+
+```
+
+##  Problem 12
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 13
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 14
+#hard
+{{description}}
+```sql
+
+```
+
+##  Problem 15
+#hard
+{{description}}
 ```sql
 
 ```
