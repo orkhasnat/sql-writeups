@@ -1,0 +1,135 @@
+{
+  "main": {
+    "id": "cf5cc48ddace8583",
+    "type": "split",
+    "children": [
+      {
+        "id": "964c2144b5908576",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d3ee1b20609b4882",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SQLZoo/congestion-charging.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "abb91f8dcc0be6bc",
+    "type": "split",
+    "children": [
+      {
+        "id": "00df7f914b70c742",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2ee6ba0efe21a7e9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ff30ece7d795250f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f8814889c4466464",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "71fcbf408d15187f",
+    "type": "split",
+    "children": [
+      {
+        "id": "6dca6ecf5a6e3d18",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed90dc93e7712f93",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "SQLZoo/congestion-charging.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ffba27201e9a1ce",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "SQLZoo/congestion-charging.md"
+              }
+            }
+          },
+          {
+            "id": "3d8736959a5bdd79",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "d3ee1b20609b4882",
+  "lastOpenFiles": [
+    "README.md",
+    "SQLZoo/congestion-charging.md",
+    "SQLZoo",
+    "SQlZoo"
+  ]
+}

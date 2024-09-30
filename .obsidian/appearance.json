@@ -1,0 +1,9 @@
+{
+  "interfaceFontFamily": "Franklin Gothic Medium",
+  "textFontFamily": "SUSE",
+  "monospaceFontFamily": "Fira Code Retina",
+  "baseFontSize": 18,
+  "showViewHeader": true,
+  "nativeMenus": false,
+  "cssTheme": "Encore"
+}
