@@ -7,5 +7,6 @@
   "encore-settings@@encore-bright-accent": false,
   "encore-settings@@encore-highlight-border": true,
   "encore-settings@@encore-custom-bold@@dark": "#00F298",
-  "encore-settings@@encore-disable-grain": false
+  "encore-settings@@encore-disable-grain": false,
+  "encore-settings@@theme-light": "encore-theme-light"
 }

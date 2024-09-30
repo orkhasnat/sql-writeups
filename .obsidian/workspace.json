@@ -14,9 +14,19 @@
               "type": "markdown",
               "state": {
                 "file": "SQLZoo/congestion-charging.md",
-                "mode": "source",
+                "mode": "preview",
                 "backlinks": false,
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "7c18d7b0662a2afa",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "_resources/CongestionCharge.png"
               }
             }
           }
@@ -44,7 +54,15 @@
             }
           },
           {
-            "id": "ff30ece7d795250f",
+            "id": "f8814889c4466464",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "5de57682c3022f5f",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -57,20 +75,13 @@
                 "sortOrder": "alphabetical"
               }
             }
-          },
-          {
-            "id": "f8814889c4466464",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {}
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "71fcbf408d15187f",
@@ -127,8 +138,14 @@
   },
   "active": "d3ee1b20609b4882",
   "lastOpenFiles": [
-    "README.md",
+    "_resources/CongestionCharge.png",
     "SQLZoo/congestion-charging.md",
+    "_resources",
+    "CongestionCharge.png",
+    "New folder",
+    "SQLZoo/CongestionCharge.png",
+    "SQLZoo/CongestionCharge.png.crdownload",
+    "README.md",
     "SQLZoo",
     "SQlZoo"
   ]
