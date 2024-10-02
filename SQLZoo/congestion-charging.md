@@ -128,10 +128,10 @@ group by keeper.id having count(*) >5;
 ```
 
 ##  Problem 8
-#medium    
-For each vehicle show the number of current permits (suppose today is the 1st of Feb 2007). The list should include the vehicle.s registration and the number of permits. Current permits can be determined based on charge types, e.g. for weekly permit you can use the date after 24 Jan 2007 and before 02 Feb 2007.   
+#medium #check            
+For each vehicle show the number of current permits (suppose today is the 1st of Feb 2007). The list should include the vehicles registration and the number of permits. Current permits can be determined based on charge types, e.g. for weekly permit you can use the date after 24 Jan 2007 and before 02 Feb 2007.  
 ```sql
-HARD
+;(
 ```
 
 ##  Problem 9
@@ -165,40 +165,73 @@ join (
 	group by permit.reg
 	having count(chargeType) > 2 
 ) as p_count
-on v_count.id = p_count.keeper
+on v_count.id = p_count.keeper;
 ```
 
 ##  Problem 11
 #hard        
 When creating a view in scott you must specify the schema name of the sources and the destination.
 ```sql
-Huh! Ok!!
+-- example view creation
+create view scott.tmp as 
+select * from gisq.table;
+-- view drop
+drop view scott.tmp;
 ```
 
 ##  Problem 12
 #hard    
 There are four types of permit. The most popular type means that this type has been issued the highest number of times. Find out the most popular type, together with the total number of permits issued.
 ```sql
-
+select chargeType,count(chargetype) as cnt from permit
+group by chargetype
+order by cnt desc
+limit 1;
 ```
 
 ##  Problem 13
-#hard    
+#hard #check          
 For each of the vehicles caught by camera 19 - show the registration, the earliest time at camera 19 and the time and camera at which it left the zone.
 ```sql
-
+;(
 ```
 
 ##  Problem 14
-#hard     
+#hard #check          
 For all 19 cameras - show the position as IN, OUT or INTERNAL and the busiest hour for that camera.
 ```sql
-
+create view scott.tmp as
+select camera.id,
+coalesce(hour(image.whn),-1) as hour,
+case when camera.perim is null then "INTERNAL"
+else camera.perim
+end as perim 
+from gisq.image right join gisq.camera 
+on camera.id = image.camera;
+---
+select id,perim,max(cnt) from
+(select *,count(hour) as cnt
+from scott.tmp
+group by id,hour) as tt
+group by id;
+-- but which hour is it?
+-- HOW??
+---
+drop view scott.tmp;
 ```
 
+> `coalesce(val1,...valn)` function returns the first non-null value in a list. 
+> So here if `whn` is `NULL` then `-1` is returned.
 ##  Problem 15
-#hard    
+#hard #check       
 Anomalous daily permits. Daily permits should not be issued for non-charging days. Find a way to represent charging days. Identify the anomalous daily permits.
 ```sql
+What are charging days!!
+```
 
+##  Problem 16
+#hard #check         
+Issuing fines: Vehicles using the zone during the charge period, on charging days must be issued with fine notices unless they have a permit covering that day. List the name and address of such culprits, give the camera and the date and time of the first offence.
+```sql
+Depends on the previous one!!
 ```

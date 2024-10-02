@@ -4,51 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "8c751efe0043a556",
-        "type": "split",
+        "id": "2864eb35f2baece8",
+        "type": "tabs",
         "children": [
           {
-            "id": "6f7dc23356167fd2",
-            "type": "tabs",
-            "dimension": 58.217592592592595,
-            "children": [
-              {
-                "id": "bf214841d5fa5377",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "SQLZoo/congestion-charging.md",
-                    "mode": "preview",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "id": "dafb34303a225ca1",
-            "type": "tabs",
-            "dimension": 41.782407407407405,
-            "children": [
-              {
-                "id": "1bb96ab15d5b697b",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "SQLZoo/congestion-charging.md",
-                    "mode": "preview",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              }
-            ]
+            "id": "46b2458250eee8bc",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -115,7 +82,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SQLZoo/congestion-charging.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,9 +92,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SQLZoo/congestion-charging.md"
-              }
+              "state": {}
             }
           },
           {
@@ -142,7 +106,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -155,10 +120,10 @@
       "templates:Insert template": false
     }
   },
-  "active": "bf214841d5fa5377",
+  "active": "46b2458250eee8bc",
   "lastOpenFiles": [
-    "_resources/congestion-charging.png",
     "SQLZoo/congestion-charging.md",
+    "_resources/congestion-charging.png",
     "_resources/sqlzoo_template.md",
     "README.md",
     "SQLZoo/congestion-charging1.md",
