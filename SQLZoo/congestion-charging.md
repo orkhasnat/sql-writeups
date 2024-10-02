@@ -202,10 +202,10 @@ For all 19 cameras - show the position as IN, OUT or INTERNAL and the busiest ho
 ```sql
 create view scott.tmp as
 select camera.id,
-coalesce(hour(image.whn),-1) as hour,
-case when camera.perim is null then "INTERNAL"
-else camera.perim
-end as perim 
+	coalesce(hour(image.whn),-1) as hour,-- do i need coalesce?
+	case when camera.perim is null then "INTERNAL"
+	else camera.perim
+	end as perim 
 from gisq.image right join gisq.camera 
 on camera.id = image.camera;
 ---
