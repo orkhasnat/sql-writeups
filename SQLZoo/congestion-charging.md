@@ -65,9 +65,9 @@ Link: [Congestion Charging](https://sqlzoo.net/wiki/Congestion_Charging)
 #easy    
  Show the name and address of the keeper of vehicle SO 02 PSP.
 ```sql
-select keeper.name, keeper.address from keeper 
-join vehicle 
-on vehicle.keeper=keeper.id
+select keeper.name, keeper.address 
+from keeper join vehicle 
+	on vehicle.keeper=keeper.id
 where vehicle.id="SO 02 PSP";
 ```
 ##  Problem 2
@@ -141,7 +141,8 @@ Obtain a list of every vehicle passing camera 10 on 25th Feb 2007. Show the time
 select image.reg, image.whn, keeper.name from image
 join vehicle on vehicle.id = image.reg
 join keeper on vehicle.keeper = keeper.id
-where image.camera = 10 and date(image.whn) = date("2007-02-25");
+where image.camera = 10 and 
+	date(image.whn) = date("2007-02-25");
 ```
 
 > **How to check data types in MySQL?** #check
@@ -183,7 +184,7 @@ drop view scott.tmp;
 #hard    
 There are four types of permit. The most popular type means that this type has been issued the highest number of times. Find out the most popular type, together with the total number of permits issued.
 ```sql
-select chargeType,count(chargetype) as cnt from permit
+select chargetype,count(chargetype) as cnt from permit
 group by chargetype
 order by cnt desc
 limit 1;
@@ -203,16 +204,18 @@ For all 19 cameras - show the position as IN, OUT or INTERNAL and the busiest ho
 create view scott.tmp as
 select camera.id,
 	coalesce(hour(image.whn),-1) as hour,-- do i need coalesce?
-	case when camera.perim is null then "INTERNAL"
-	else camera.perim
-	end as perim 
+		case when camera.perim is null then "INTERNAL"
+			else camera.perim
+		end as perim 
 from gisq.image right join gisq.camera 
-on camera.id = image.camera;
+	on camera.id = image.camera;
 ---
-select id,perim,max(cnt) from
-(select *,count(hour) as cnt
-from scott.tmp
-group by id,hour) as tt
+select id,perim,max(cnt) 
+from (
+	select *,count(hour) as cnt
+	from scott.tmp
+	group by id,hour
+) as tt
 group by id;
 -- but which hour is it?
 -- HOW??
@@ -220,7 +223,7 @@ group by id;
 drop view scott.tmp;
 ```
 
-> `coalesce(val1,...valn)` function returns the first non-null value in a list. 
+> `coalesce(val1,...valn)` function returns the first non-null value in a list.     
 > So here if `whn` is `NULL` then `-1` is returned.
 ##  Problem 15
 #hard #check       

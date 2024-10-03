@@ -4,49 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "fd5b3a66ccea99cd",
-        "type": "split",
+        "id": "a6d7ee6318180f13",
+        "type": "tabs",
         "children": [
           {
-            "id": "f5e703df8037da81",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "454c8d1444b24ff4",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "SQLZoo/guest-house.md",
-                    "mode": "preview",
-                    "backlinks": false,
-                    "source": true
-                  }
-                }
+            "id": "d2cf33b84e1fde00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SQLZoo/help-desk.md",
+                "mode": "preview",
+                "backlinks": false,
+                "source": false
               }
-            ]
-          },
-          {
-            "id": "b68e8da916b4f0f6",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "bf8829a0ad9c4b0f",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "SQLZoo/guest-house.md",
-                    "mode": "preview",
-                    "backlinks": false,
-                    "source": false
-                  }
-                }
-              }
-            ]
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -113,7 +87,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SQLZoo/guest-house.md",
+                "file": "SQLZoo/help-desk.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +99,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SQLZoo/guest-house.md"
+                "file": "SQLZoo/help-desk.md"
               }
             }
           },
@@ -154,16 +128,19 @@
       "templates:Insert template": false
     }
   },
-  "active": "454c8d1444b24ff4",
+  "active": "d2cf33b84e1fde00",
   "lastOpenFiles": [
-    "SQLZoo/congestion-charging.md",
+    "README.md",
     "SQLZoo/guest-house.md",
+    "SQLZoo/congestion-charging.md",
+    "SQLZoo/help-desk.md",
+    "_resources/help-desk.png",
+    "_resources/help-desk.png.crdownload",
     "_resources/guest-house.png",
     "_resources/guest-house.png.crdownload",
     "SQLZoo/university-timetables.md",
     "_resources/congestion-charging.png",
     "_resources/sqlzoo_template.md",
-    "README.md",
     "SQLZoo/congestion-charging1.md",
     "_resources/template.md",
     "SQLZoo/template.md",

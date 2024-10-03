@@ -51,8 +51,8 @@ where booking.booking_id in (5152, 5165, 5154, 5295);
 #easy    
 Who’s in 101? Find who is staying in room 101 on 2016-12-03, include first name, last name and address
 ```sql
-select first_name,last_name,address from booking join guest
-on guest.id = booking.guest_id
+select first_name,last_name,address from booking 
+join guest on guest.id = booking.guest_id
 where room_no = 101 and
 	booking_date = '2016-12-03';
 ```
@@ -72,12 +72,13 @@ group by guest_id;
 #medium    
 Ruth Cadbury. Show the total amount payable by guest Ruth Cadbury for her room bookings. You should JOIN to the rate table using room_type_requested and occupants.
 ```sql
-select sum(nights*amount) from rate join booking on 
-	booking.room_type_requested = rate.room_type 
-and booking.occupants = rate.occupancy
+select sum(nights*amount) from rate 
+join booking 
+	on booking.room_type_requested = rate.room_type 
+	and booking.occupants = rate.occupancy
 join guest on booking.guest_id = guest.id
 where guest.first_name = 'Ruth' 
-and guest.last_name = 'Cadbury';
+	and guest.last_name = 'Cadbury';
 ```
 
 ##  Problem 7
@@ -106,7 +107,7 @@ group by last_name,first_name,address
 order by last_name,first_name;
 ```
 
-> `coalesce(val1,...valn)` function returns the first non-null value in a list. 
+> `coalesce(val1,...valn)` function returns the first non-null value in a list.       
 > So here if the `sum` is `NULL` then `0` is returned.
 
 ##  Problem 9
@@ -135,18 +136,30 @@ where booking_date <= "2016-11-21" and
 Coincidence. Have two guests with the same surname ever stayed in the hotel on the evening? Show the last name and both first names. Do not include duplicates.      
 _**N.B.** `last_name` is surname._   
 ```sql
-select distinct(a.last_name),a.first_name as a_name, b.first_name as b_name from
-(select * from guest join booking on booking.guest_id = guest.id) as a
-join
-(select * from guest join booking on booking.guest_id = guest.id) as b
-on a.last_name = b.last_name and a.first_name != b.first_name
-where (a.booking_date between b.booking_date and date(b.booking_date+b.nights-1)) 
-or (b.booking_date between a.booking_date and date(a.booking_date+a.nights-1))
+select distinct(a.last_name), a.first_name as a_name,
+	b.first_name as b_name 
+from (
+	select * from guest join booking 
+		on booking.guest_id = guest.id
+) as a
+join ( 
+	select * from guest join booking 
+		on booking.guest_id = guest.id
+) as b 
+	on a.last_name = b.last_name 
+		and a.first_name != b.first_name
+where ( a.booking_date between 
+		b.booking_date and 
+		date(b.booking_date+b.nights-1)
+	) 
+	or ( b.booking_date between 
+		 a.booking_date and 
+		 date(a.booking_date+a.nights-1)
+	)
 order by a.last_name 
 ```
 
-> 
-> `-1` because booking_date itself is a night.
+> `-1` because `booking_date` itself is a night.
 
 ##  Problem 12
 #hard      
