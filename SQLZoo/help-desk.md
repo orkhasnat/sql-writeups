@@ -97,57 +97,66 @@ where Issue.call_date like '%2017-08-14%'
 
 ##  Problem 3
 #easy    
-{{description}}
+There are 500 calls in the system (roughly). Write a query that shows the number that have each status.
 ```sql
-
+select status, count(*) as volume
+from Issue
+group by status;
 ```
 
 ##  Problem 4
 #easy    
-{{description}}
+Calls are not normally assigned to a manager but it does happen. How many calls have been assigned to staff who are at Manager Level?
 ```sql
-
+select count(*) as mlcc from Issue
+join Staff on Issue.assigned_to = Staff.staff_code
+join Level on Staff.level_code = Level.level_code
+where Level.manager = 'Y';
 ```
 
 
 ##  Problem 5
 #easy    
-{{description}}
+Show the manager for each shift. Your output should include the shift date and type; also the first and last name of the manager.
 ```sql
-
+select Shift.shift_date, Shift.shift_type,
+	Staff.first_name, Staff.last_name
+from Shift join Staff
+	on Shift.manager = Staff.staff_code
+order by Shift.shift_date;
 ```
 
 ##  Problem 6
 #medium    
-{{description}}
+List the Company name and the number of calls for those companies with more than 18 calls.
 ```sql
 
 ```
 
 ##  Problem 7
 #medium     
-{{description}} 
+Find the callers who have never made a call. Show first name and last name
 ```sql
 
 ```
 
 ##  Problem 8
 #medium      
-{{description}}
+For each customer show: Company name, contact name, number of calls where the number of calls is fewer than 5
 ```sql
 
 ```
 
 ##  Problem 9
 #medium     
-{{description}}
+For each shift show the number of staff assigned. Beware that some roles may be NULL and that the same person might have been assigned to multiple roles (The roles are 'Manager', 'Operator', 'Engineer1', 'Engineer2').
 ```sql
 
 ```
 
 ##  Problem 10
 #medium    
-{{description}}
+Caller 'Harry' claims that the operator who took his most recent call was abusive and insulting. Find out who took the call (full name) and when.
 ```sql
 
 ```

@@ -41,9 +41,9 @@ Look up daily rates. Give the daily rate that should be paid for bookings with i
 ```sql
 select booking.booking_id, booking.room_type_requested, 
 	booking.occupants, rate.amount
-from booking join rate on 
-	booking.room_type_requested = rate.room_type 
-and booking.occupants = rate.occupancy
+from booking join rate 
+	on booking.room_type_requested = rate.room_type 
+		and booking.occupants = rate.occupancy
 where booking.booking_id in (5152, 5165, 5154, 5295);
 ```
 
@@ -75,7 +75,7 @@ Ruth Cadbury. Show the total amount payable by guest Ruth Cadbury for her room b
 select sum(nights*amount) from rate 
 join booking 
 	on booking.room_type_requested = rate.room_type 
-	and booking.occupants = rate.occupancy
+		and booking.occupants = rate.occupancy
 join guest on booking.guest_id = guest.id
 where guest.first_name = 'Ruth' 
 	and guest.last_name = 'Cadbury';
@@ -86,11 +86,11 @@ where guest.first_name = 'Ruth'
 Including Extras. Calculate the total bill for booking 5346 including extras.
 ```sql
 select (sum(extra.amount) + (rate.amount*nights)) 
-from extra join booking on 
-	booking.booking_id = extra.booking_id 
-join rate on 
-	booking.room_type_requested = rate.room_type 
-and booking.occupants = rate.occupancy
+from extra join booking 
+	on booking.booking_id = extra.booking_id 
+join rate 
+	on booking.room_type_requested = rate.room_type 
+		and booking.occupants = rate.occupancy
 where booking.booking_id = 5346;
 ```
 
@@ -116,8 +116,8 @@ How busy are we? For each day of the week beginning 2016-11-25 show the number o
 ```sql
 select (booking_date) as i, 
 	count(*) as arrivals from booking
-where booking_date >= "2016-11-25" and
-	booking_date <"2016-12-02"
+where booking_date >= "2016-11-25" 
+	and booking_date <"2016-12-02"
 group by booking_date
 order by booking_date;
 ```
@@ -156,7 +156,7 @@ where ( a.booking_date between
 		 a.booking_date and 
 		 date(a.booking_date+a.nights-1)
 	)
-order by a.last_name 
+order by a.last_name;
 ```
 
 > `-1` because `booking_date` itself is a night.

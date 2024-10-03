@@ -6,5 +6,6 @@
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
   "showRibbon": true,
-  "showInlineTitle": false
+  "showInlineTitle": false,
+  "tabSize": 2
 }

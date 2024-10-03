@@ -122,7 +122,7 @@ where image.camera in (1,18);
 Show keepers (name and address) who have more than 5 vehicles.
 ```sql
 select keeper.name, keeper.address, 
-count(vehicle.id) from keeper
+	count(vehicle.id) from keeper
 join vehicle on vehicle.keeper = keeper.id
 group by keeper.id having count(*) >5;
 ```
@@ -141,8 +141,8 @@ Obtain a list of every vehicle passing camera 10 on 25th Feb 2007. Show the time
 select image.reg, image.whn, keeper.name from image
 join vehicle on vehicle.id = image.reg
 join keeper on vehicle.keeper = keeper.id
-where image.camera = 10 and 
-	date(image.whn) = date("2007-02-25");
+where image.camera = 10 
+	and date(image.whn) = date("2007-02-25");
 ```
 
 > **How to check data types in MySQL?** #check
@@ -154,14 +154,14 @@ List the keepers who have more than 4 vehicles and one of them must have more th
 select v_count.name, v_count.n_veh as "No. of Vehicles"
 from (
 	select keeper.id, keeper.name, 
-	count(vehicle.id) as n_veh from keeper
+		count(vehicle.id) as n_veh from keeper
 	join vehicle on vehicle.keeper = keeper.id 
 	group by keeper,id, keeper.name
 	having count(vehicle.id) > 4 
 ) as v_count 
 join ( 
 	select vehicle.keeper, permit.reg, 
-	count(chargetype) from vehicle
+		count(chargetype) from vehicle
 	join permit on permit.reg = vehicle.id
 	group by permit.reg
 	having count(chargeType) > 2 
@@ -204,15 +204,15 @@ For all 19 cameras - show the position as IN, OUT or INTERNAL and the busiest ho
 create view scott.tmp as
 select camera.id,
 	coalesce(hour(image.whn),-1) as hour,-- do i need coalesce?
-		case when camera.perim is null then "INTERNAL"
-			else camera.perim
-		end as perim 
+	case when camera.perim is null then "INTERNAL"
+		else camera.perim
+	end as perim 
 from gisq.image right join gisq.camera 
 	on camera.id = image.camera;
 ---
 select id,perim,max(cnt) 
 from (
-	select *,count(hour) as cnt
+	select *, count(hour) as cnt
 	from scott.tmp
 	group by id,hour
 ) as tt
