@@ -132,20 +132,19 @@ where booking_date <= "2016-11-21" and
 ```
 
 ##  Problem 11
-#hard #check        
+#hard           
 Coincidence. Have two guests with the same surname ever stayed in the hotel on the evening? Show the last name and both first names. Do not include duplicates.      
 _**N.B.** `last_name` is surname._   
 ```sql
-select distinct(a.last_name), a.first_name as a_name,
+with guests as(
+	select * from guest 
+	join booking on booking.guest_id = guest.id
+)
+select distinct(a.last_name), 
+	a.first_name as a_name,
 	b.first_name as b_name 
-from (
-	select * from guest join booking 
-		on booking.guest_id = guest.id
-) as a
-join ( 
-	select * from guest join booking 
-		on booking.guest_id = guest.id
-) as b 
+from guests as a
+join guests as b 
 	on a.last_name = b.last_name 
 		and a.first_name != b.first_name
 where ( a.booking_date between 
@@ -161,30 +160,114 @@ order by a.last_name;
 
 > `-1` because `booking_date` itself is a night.
 
+> [!note] #check
+> how to filter the duplicates?
 ##  Problem 12
 #hard      
-{{description}}
+Check out per floor. The first digit of the room number indicates the floor – e.g. room 201 is on the 2nd floor. For each day of the week beginning 2016-11-14 show how many rooms are being vacated that day by floor number. Show all days in the correct order.
 ```sql
-
+select
+	date_add(booking_date, interval nights day) as i,
+	sum(case when room_no like '1%' then 1 else 0 end) as 1st,
+	sum(case when room_no like '2%' then 1 else 0 end) as 2nd,
+	sum(case when room_no like '3%' then 1 else 0 end) as 3rd
+from booking
+where
+	date_add(booking_date, interval nights day) 
+		between '2016-11-14' and '2016-11-20'
+group by i
+order by i;
 ```
 
 ##  Problem 13
 #hard    
-{{description}}
+Free rooms? List the rooms that are free on the day 25th Nov 2016.
 ```sql
+with occupied as (
+	select room_no,booking_date, date(booking_date+nights-1)
+	from booking
+	where '2016-11-25' 
+		between booking_date and date(booking_date+nights-1)
+)
+select distinct room_no as id from booking 
+where room_no not in (select room_no from occupied);
 
 ```
 
 ##  Problem 14
 #hard     
-{{description}}
+Single room for three nights required. A customer wants a single room for three consecutive nights. Find the first available date in December 2016.
 ```sql
+with rooms as (
+	select a.room_no, a.nights, a.booking_date, 
+		min(b.booking_date) as next_booking
+	from booking as a 
+	join booking as b 
+		on a.booking_date < b.booking_date 
+			and a.room_no = b.room_no
+	where a.room_no in (101, 201, 301) 
+		and a.booking_date like '2016-12%' 
+		and b.booking_date like '2016-12%'
+	group by a.room_no, a.nights, a.booking_date
+	order by a.room_no, a.booking_date
+),
+timediff as (
+	select rooms.*, 
+		timestampdiff(
+			day, rooms.booking_date, rooms.next_booking
+		) - rooms.nights
+	from rooms
+),
+earliest as (
+	select timediff.room_no, 
+		max(
+			date_add(
+				timediff.next_booking, 
+				interval timediff.nights day
+			)
+		) as earliest_opening
+	from timediff
+	group by timediff.room_no
+)
 
+select earliest.room_no as id, earliest.earliest_opening
+from earliest
+order by earliest.earliest_opening
+limit 1;
 ```
 
 ##  Problem 15
 #hard     
-{{description}}
+Gross income by week. Money is collected from guests when they leave. For each Thursday in November and December 2016, show the total amount of money collected from the previous Friday to that day, inclusive.
 ```sql
+with weeks as(
+	select 
+		date_add(booking_date, interval -6 day) as previous_friday, 
+		booking_date as thursday 
+	from booking
+	where dayofweek(booking_date) = 5
+	group by booking_date
+),
+checkout_bill as(
+	select booking.*, 
+		date_add(booking_date, interval nights day) as checkout_date, 
+		(
+			(rate.amount * booking.nights) +
+			 coalesce(sum(extra.amount), 0)
+		) as bill
+	from booking join rate 
+		on booking.room_type_requested = rate.room_type 
+			and booking.occupants = rate.occupancy
+	left join extra on booking.booking_id = extra.booking_id
+	group by booking.booking_id
+)
 
+select weeks.thursday, sum(checkout_bill.bill)
+from weeks
+join checkout_bill
+	on checkout_bill.checkout_date 
+		between weeks.previous_friday and weeks.thursday
+group by weeks.thursday;
 ```
+
+> Why the `0.00` are not shown ;(     #check

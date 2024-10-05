@@ -128,11 +128,31 @@ group by keeper.id having count(*) >5;
 ```
 
 ##  Problem 8
-#medium #check            
+#medium             
 For each vehicle show the number of current permits (suppose today is the 1st of Feb 2007). The list should include the vehicles registration and the number of permits. Current permits can be determined based on charge types, e.g. for weekly permit you can use the date after 24 Jan 2007 and before 02 Feb 2007.  
 ```sql
-;(
+with Permits as(
+	select *, 
+	case 
+		when chargetype = "Daily" 
+			then date_add(sDate, interval 1 day)
+		when chargetype = "Weekly" 
+			then date_add(sDate, interval 1 week)
+		when chargetype = "Monthly" 
+			then date_add(sDate, interval 1 month)
+		when chargetype = "Annual" 
+			then date_add(sDate, interval 1 year)
+	end as expr
+	from permit
+)
+select reg, count(*) as current
+from Permits
+where '2007-02-01' between sDate and expr
+group by reg;
 ```
+
+> [!bug] **Best way to add date is `date_add` function.**
+> Don't ever try to add dates with hacky solutions like this, `date(date(sDate)+1)`. Otherwise end up with serious headaches and wasted hours.
 
 ##  Problem 9
 #medium               
@@ -191,10 +211,28 @@ limit 1;
 ```
 
 ##  Problem 13
-#hard #check          
+#hard                 
 For each of the vehicles caught by camera 19 - show the registration, the earliest time at camera 19 and the time and camera at which it left the zone.
 ```sql
-;(
+with enter as(
+	select camera, reg, MIN(whn) as first_capture
+	from image
+	where camera = 19
+	group by reg, camera
+),
+_left as(
+	select image.reg, enter.camera as first_camera, 
+		enter.first_capture, MIN(whn) as left_zone
+	from image 
+	join enter
+		on image.reg = enter.reg
+	where image.whn > enter.first_capture
+	group by image.reg, enter.first_capture, enter.camera
+)
+
+select _left.*, image.camera as left_camera
+from image join _left
+on image.reg = _left.reg and image.whn = _left.left_zone;
 ```
 
 ##  Problem 14
@@ -226,14 +264,14 @@ drop view scott.tmp;
 > `coalesce(val1,...valn)` function returns the first non-null value in a list.     
 > So here if `whn` is `NULL` then `-1` is returned.
 ##  Problem 15
-#hard #check       
+#hard #check                
 Anomalous daily permits. Daily permits should not be issued for non-charging days. Find a way to represent charging days. Identify the anomalous daily permits.
 ```sql
 What are charging days!!
 ```
 
 ##  Problem 16
-#hard #check         
+#hard #check                            
 Issuing fines: Vehicles using the zone during the charge period, on charging days must be issued with fine notices unless they have a permit covering that day. List the name and address of such culprits, give the camera and the date and time of the first offence.
 ```sql
 Depends on the previous one!!

@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "1cf348ede16aa5ca",
+        "id": "9c2bce1986eaa079",
         "type": "tabs",
         "children": [
           {
-            "id": "f6c5b94fb450063f",
+            "id": "db1d6b28a4ea110b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SQLZoo/help-desk.md",
-                "mode": "preview",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -70,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "71fcbf408d15187f",
@@ -87,7 +81,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SQLZoo/help-desk.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -98,9 +91,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SQLZoo/help-desk.md"
-              }
+              "state": {}
             }
           },
           {
@@ -128,12 +119,12 @@
       "templates:Insert template": false
     }
   },
-  "active": "f6c5b94fb450063f",
+  "active": "db1d6b28a4ea110b",
   "lastOpenFiles": [
-    "SQLZoo/congestion-charging.md",
     "SQLZoo/guest-house.md",
-    "SQLZoo/help-desk.md",
     "README.md",
+    "SQLZoo/help-desk.md",
+    "SQLZoo/congestion-charging.md",
     "_resources/help-desk.png",
     "_resources/help-desk.png.crdownload",
     "_resources/guest-house.png",

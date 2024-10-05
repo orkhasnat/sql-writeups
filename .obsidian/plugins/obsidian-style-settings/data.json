@@ -1,10 +1,10 @@
 {
-  "encore-settings@@theme-dark": "encore-theme-dark-materialocean",
+  "encore-settings@@theme-dark": "encore-theme-dark-slate",
   "encore-settings@@colors": "encore-colors-colorful",
   "encore-settings@@encore-translucency": false,
   "encore-settings@@encore-fancy-headers": false,
   "encore-settings@@encore-coloured-tooltip": true,
-  "encore-settings@@encore-bright-accent": false,
+  "encore-settings@@encore-bright-accent": true,
   "encore-settings@@encore-highlight-border": true,
   "encore-settings@@encore-custom-bold@@dark": "#00F298",
   "encore-settings@@encore-disable-grain": false,
